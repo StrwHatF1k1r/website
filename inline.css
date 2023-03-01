@@ -1,0 +1,19 @@
+.flex-child {
+    flex: 1;
+    margin: 4px;
+    padding: 2px;
+    background: cyan;
+    height: 2rem;
+    }
+
+    .container-flex{
+        display: flex;
+        background:black;
+        margin: 1rem 0;
+    }
+
+    .container-inline--flex{
+        display: inline-flex;
+        background: black;
+    }
+   
