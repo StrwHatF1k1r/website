@@ -38,7 +38,7 @@ button{
   color: #5372F0;
   padding: 23px 44px;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: crosshair;
   font-weight: 500;
   background: #fff;
   box-shadow: 15px 25px 25px 15px rgba(0,0,0,0.1);
