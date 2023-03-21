@@ -19,9 +19,10 @@
             window.onload = init;
         </script>
         <main>
-            <form action="">
-            Name :<input type="text" required>
-            
+            <form action="" method="post">
+            Name :<input type="text" required
+            oninvalid="this.setCustomValidity('Enter name ')"
+            oninvalid="this.setCustomValidity(' ')">
             <br>
             Password :<input type="password" required>
     
