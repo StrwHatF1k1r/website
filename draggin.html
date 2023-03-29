@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag and Drop Zones</title>
+	<style>
+		#dropzone {
+			width: 300px;
+			height: 150px;
+			border: 2px dashed black;
+			margin-bottom: 20px;
+		}
+
+		#dragzone {
+			width: 300px;
+			height: 150px;
+			border: 2px dashed black;
+		}
+
+		.item {
+			width: 100px;
+			height: 50px;
+			background-color: gray;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 5px;
+			cursor: move;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="dropzone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+		<p>Drop items here</p>
+	</div>
+
+	<div id="dragzone">
+		<div class="item" draggable="true" ondragstart="dragStartHandler(event);">Item 1</div>
+		<div class="item" draggable="true" ondragstart="dragStartHandler(event);">Item 2</div>
+		<div class="item" draggable="true" ondragstart="dragStartHandler(event);">Item 3</div>
+	</div>
+
+	<script>
+		function dragStartHandler(event) {
+			event.dataTransfer.setData("text/plain", event.target.textContent);
+		}
+
+		function dragOverHandler(event) {
+			event.preventDefault();
+			event.dataTransfer.dropEffect = "move";
+		}
+
+		function dropHandler(event) {
+			event.preventDefault();
+			var data = event.dataTransfer.getData("text/plain");
+			event.target.appendChild(document.createTextNode(data));
+		}
+	</script>
+     <script>
+        function init() {
+            var loc = window.location.href;
+            var HTMLvalidLinkStr = 'http://validator.w3.org/check?uri=' + loc;
+            var CSSvalidLinkStr = 'http://jigsaw.w3.org/css-validator/validator?uri=' +
+                                    loc + '?profile=css3';
+            document.getElementById("vLink1").setAttribute("href", HTMLvalidLinkStr);
+            document.getElementById("vLink2").setAttribute("href", CSSvalidLinkStr);
+        }
+        window.onload = init;
+    </script>
+    <footer id="vLinks">
+        <hr>
+        <a id="vLink1">
+        <strong> HTML </strong> Valid! </a> &nbsp; 
+        <a id="vLink2">
+        <strong> CSS </strong> Valid! </a>
+    </footer>
+</body>
+</html>
